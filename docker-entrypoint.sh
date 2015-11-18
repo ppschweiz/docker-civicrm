@@ -117,6 +117,7 @@ EOPHP
 su www-data -c '/usr/local/bin/wp-cli.phar plugin install /civicrm-wordpress.zip'
 su www-data -c '/usr/local/bin/wp-cli.phar plugin activate civicrm'
 mkdir -p /var/www/html/wp-content/plugins/files
+
 # TODO: add code to define CIVICRM_DSN in plugins/civicrm/civicrm.settings.php
 
 #/update-wordpress.sh
