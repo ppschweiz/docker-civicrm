@@ -114,6 +114,8 @@ if (!$mysql->query('CREATE DATABASE IF NOT EXISTS `' . $mysql->real_escape_strin
 $mysql->close();
 EOPHP
 
+chown -R "$APACHE_RUN_USER:$APACHE_RUN_GROUP" .
+su www-data -c "/usr/local/bin/wp-cli.phar core install --url=\"$WP_URL\" --title=\"$WP_TITLE\" --admin_user=\"$WP_ADMIN_USER\" --admin_password=\"$WP_ADMIN_PASSWORD\" --admin_email=\"$WP_ADMIN_EMAIL\""
 su www-data -c '/usr/local/bin/wp-cli.phar plugin install /civicrm-wordpress.zip'
 su www-data -c '/usr/local/bin/wp-cli.phar plugin activate civicrm'
 mkdir -p /var/www/html/wp-content/plugins/files
